@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alban Singular | AI Process Optimisation for St Albans Businesses</title>
+    <meta name="description" content="We help St Albans businesses cut costs, save time, and streamline operations with intelligent automation. Free process audit for qualifying businesses.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --martyr: #8B2332;
+            --cream: #F0EBE0;
+            --gold: #D4A017;
+            --azure: #1E4D8C;
+            --flint: #6B6560;
+            --leaf: #4A6741;
+            --dark: #1a1714;
+            --mid: #2e2a25;
+            --dim: #9A948C;
+            --border: #D1CBBD;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            background: var(--cream);
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: var(--azure);
+            color: #fff;
+        }
+
+        /* ─── NAV ─── */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 0 48px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            transition: all 0.4s;
+        }
+
+        nav.scrolled {
+            background: rgba(240, 235, 224, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--dark);
+            text-decoration: none;
+            letter-spacing: -0.03em;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-mark {
+            width: 28px;
+            height: 28px;
+            background: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6rem;
+            color: var(--dim);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--flint);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 500;
+            padding: 10px 20px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--dark);
+        }
+
+        .nav-links .nav-cta {
+            color: #fff;
+            background: var(--dark);
+            margin-left: 12px;
+        }
+
+        .nav-links .nav-cta:hover {
+            background: var(--mid);
+        }
+
+        /* ─── HERO ─── */
+        .hero {
+            padding: 100px 48px 80px;
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 64px;
+            align-items: end;
+            position: relative;
+        }
+
+        .hero-circle {
+            position: absolute;
+            top: 120px;
+            right: 48px;
+            width: 340px;
+            height: 340px;
+            border-radius: 50%;
+            background: var(--martyr);
+            opacity: 0.9;
+        }
+
+        .hero-index {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6rem;
+            color: var(--dim);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .hero-index::before {
+            content: '';
+            width: 24px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(4rem, 8vw, 7.5rem);
+            font-weight: 700;
+            line-height: 0.88;
+            letter-spacing: -0.06em;
+            margin-bottom: 0;
+        }
+
+        .hero h1 .line-thin {
+            font-weight: 400;
+            display: block;
+        }
+
+        .hero h1 .line-azure {
+            color: var(--azure);
+            display: block;
+        }
+
+        .hero-right {
+            padding-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            color: var(--flint);
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            background: var(--dark);
+            color: #fff;
+            padding: 20px 32px;
+            text-decoration: none;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: -0.01em;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: var(--azure);
+        }
+
+        .btn-primary .arrow {
+            transition: transform 0.3s;
+        }
+
+        .btn-primary:hover .arrow {
+            transform: translateX(4px);
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            color: var(--flint);
+            padding: 20px 32px;
+            text-decoration: none;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: -0.01em;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--dark);
+            color: var(--dark);
+        }
+
+        /* ─── STRIP ─── */
+        .strip {
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 0 48px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .strip-item {
+            padding: 28px 0;
+            border-right: 1px solid var(--border);
+            padding-right: 24px;
+            padding-left: 24px;
+        }
+
+        .strip-item:first-child { padding-left: 0; }
+        .strip-item:last-child { border-right: none; }
+
+        .strip-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--dim);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .strip-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+
+        /* ─── PROBLEM ─── */
+        .problem {
+            padding: 60px 48px;
+        }
+
+        .problem-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            margin-bottom: 80px;
+        }
+
+        .section-idx {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--gold);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 1.0;
+        }
+
+        .section-desc {
+            font-size: 1.0rem;
+            color: var(--flint);
+            line-height: 1.8;
+            align-self: end;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0;
+            border: 1px solid var(--border);
+        }
+
+        .problem-card {
+            padding: 48px 40px;
+            border-right: 1px solid var(--border);
+            position: relative;
+        }
+
+        .problem-card:last-child { border-right: none; }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 48px;
+            left: 40px;
+            width: 32px;
+            height: 3px;
+            background: var(--martyr);
+        }
+
+        .problem-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: rgba(26, 23, 20, 0.06);
+            line-height: 1;
+            margin-bottom: 24px;
+            letter-spacing: -0.04em;
+        }
+
+        .problem-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+            padding-top: 16px;
+        }
+
+        .problem-card p {
+            color: var(--flint);
+            font-size: 0.95rem;
+            line-height: 1.75;
+        }
+
+        /* ─── PROCESS ─── */
+        .process {
+            padding: 60px 48px;
+        }
+
+        .process-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            margin-bottom: 80px;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0;
+        }
+
+        .process-card {
+            padding: 48px 40px;
+            background: var(--dark);
+            color: #fff;
+            position: relative;
+        }
+
+        .process-card:nth-child(2) {
+            background: var(--azure);
+        }
+
+        .process-card:nth-child(3) {
+            background: var(--mid);
+        }
+
+        .process-idx {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            opacity: 0.5;
+            margin-bottom: 48px;
+        }
+
+        .process-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .process-card p {
+            font-size: 0.95rem;
+            line-height: 1.75;
+            opacity: 0.8;
+        }
+
+        /* ─── VERTICALS ─── */
+        .verticals {
+            padding: 60px 48px;
+            border-top: 1px solid var(--border);
+            position: relative;
+        }
+
+        .verticals-circle {
+            position: absolute;
+            top: -80px;
+            left: 48px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: var(--gold);
+            opacity: 0.15;
+        }
+
+        .verticals-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .verticals-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            border: 1px solid var(--border);
+            position: relative;
+            z-index: 1;
+        }
+
+        .v-item {
+            padding: 36px 32px;
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s;
+            cursor: default;
+        }
+
+        .v-item:nth-child(4n) { border-right: none; }
+        .v-item:nth-child(n+5) { border-bottom: none; }
+
+        .v-item:hover {
+            background: rgba(30, 77, 140, 0.04);
+        }
+
+        .v-idx {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.55rem;
+            color: var(--dim);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .v-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+
+        .v-use {
+            font-size: 0.88rem;
+            color: var(--flint);
+            line-height: 1.6;
+        }
+
+        /* ─── OFFER ─── */
+        .offer {
+            padding: 0 48px;
+            margin-bottom: 60px;
+        }
+
+        .offer-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: var(--dark);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offer-circle {
+            position: absolute;
+            bottom: -100px;
+            right: -60px;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            background: var(--martyr);
+            opacity: 0.7;
+        }
+
+        .offer-left {
+            padding: 80px 64px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .offer-idx {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.58rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 32px;
+        }
+
+        .offer-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 1.0;
+            margin-bottom: 24px;
+        }
+
+        .offer-text {
+            font-size: 1.0rem;
+            line-height: 1.8;
+            opacity: 0.75;
+            margin-bottom: 40px;
+            max-width: 440px;
+        }
+
+        .offer-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6rem;
+            color: var(--gold);
+            letter-spacing: 0.06em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 24px;
+        }
+
+        .pulse-dot {
+            width: 5px;
+            height: 5px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .offer-right {
+            padding: 80px 64px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0;
+            position: relative;
+            z-index: 1;
+            border-left: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .offer-stat {
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .offer-stat:last-child { border-bottom: none; }
+
+        .offer-stat-val {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .offer-stat-lbl {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+            opacity: 0.5;
+        }
+
+        /* ─── ABOUT ─── */
+        .about {
+            padding: 60px 48px;
+            border-top: 1px solid var(--border);
+        }
+
+        .about-header {
+            margin-bottom: 80px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+
+        .about-text p {
+            color: var(--flint);
+            margin-bottom: 24px;
+            font-size: 1.0rem;
+            line-height: 1.85;
+        }
+
+        .about-text strong {
+            color: var(--dark);
+        }
+
+        .about-visual {
+            position: relative;
+            height: 480px;
+        }
+
+        .about-block {
+            position: absolute;
+            background: var(--azure);
+            width: 100%;
+            height: 360px;
+            top: 0;
+        }
+
+        .about-block-inner {
+            padding: 40px;
+            color: #fff;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.58rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            opacity: 0.5;
+        }
+
+        .about-circle-sm {
+            position: absolute;
+            bottom: -50px;
+            right: -40px;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: var(--gold);
+        }
+
+        /* ─── CONTACT ─── */
+        .contact {
+            padding: 60px 48px;
+            border-top: 1px solid var(--border);
+        }
+
+        .contact-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            margin-bottom: 80px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 80px;
+        }
+
+        .contact-info h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 32px;
+            letter-spacing: -0.02em;
+        }
+
+        .contact-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+
+        .contact-line:last-child { border-bottom: none; }
+
+        .contact-line-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--dim);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .contact-line a {
+            color: var(--dark);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-line a:hover {
+            color: var(--azure);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+            background: #fff;
+            color: var(--dark);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--dim);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--azure);
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            background: var(--dark);
+            color: #fff;
+            border: none;
+            padding: 20px 48px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            align-self: flex-start;
+        }
+
+        .contact-form button:hover {
+            background: var(--azure);
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            padding: 32px 48px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-left {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.58rem;
+            color: var(--dim);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .footer-right {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.58rem;
+            color: var(--dim);
+            letter-spacing: 0.06em;
+        }
+
+        /* ─── ANIMATIONS ─── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ─── PULL QUOTES ─── */
+        .pull-quote {
+            padding: 48px 48px;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pull-quote-inner {
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .pull-quote blockquote {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1.35;
+            margin: 0;
+            position: relative;
+            padding-left: 32px;
+            border-left: 3px solid var(--gold);
+        }
+
+        .pull-quote-attr {
+            margin-top: 24px;
+            padding-left: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .pull-quote-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .pull-quote-role {
+            font-size: 0.85rem;
+            color: var(--flint);
+        }
+
+        .pull-quote-context {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--dim);
+            letter-spacing: 0.04em;
+            margin-top: 4px;
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 900px) {
+            nav, .hero, .problem, .process, .verticals, .offer, .about, .contact, .pull-quote, footer {
+                padding-left: 24px;
+                padding-right: 24px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+                padding-top: 120px;
+                padding-bottom: 60px;
+                gap: 48px;
+            }
+
+            .hero-circle {
+                width: 200px;
+                height: 200px;
+                right: 24px;
+                top: 100px;
+            }
+
+            .hero h1 { font-size: clamp(2.8rem, 10vw, 4.5rem); }
+
+            .strip { grid-template-columns: repeat(2, 1fr); }
+            .strip-item:nth-child(2) { border-right: none; }
+            .strip-item:nth-child(1), .strip-item:nth-child(2) { border-bottom: 1px solid var(--border); }
+
+            .problem-header,
+            .process-header,
+            .verticals-header,
+            .contact-header {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .problem-grid,
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .problem-card { border-right: none; border-bottom: 1px solid var(--border); }
+            .problem-card:last-child { border-bottom: none; }
+
+            .verticals-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .v-item:nth-child(2n) { border-right: none; }
+            .v-item:nth-child(n+5) { border-bottom: 1px solid var(--border); }
+            .v-item:nth-child(n+7) { border-bottom: none; }
+
+            .offer-box { grid-template-columns: 1fr; }
+            .offer-left, .offer-right { padding: 48px 32px; }
+            .offer-right { border-left: none; border-top: 1px solid rgba(255,255,255,0.1); }
+            .offer-circle { bottom: -60px; right: -40px; width: 200px; height: 200px; }
+
+            .about-content, .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .about-visual { height: 320px; }
+
+            .form-row { grid-template-columns: 1fr; }
+
+            .nav-meta { display: none; }
+            .nav-links { display: none; }
+
+            footer { flex-direction: column; gap: 8px; text-align: center; }
+        }
+
+        @media (max-width: 480px) {
+            .verticals-grid { grid-template-columns: 1fr; }
+            .v-item { border-right: none !important; border-bottom: 1px solid var(--border) !important; }
+            .v-item:last-child { border-bottom: none !important; }
+            .strip { grid-template-columns: 1fr; }
+            .strip-item { border-right: none; border-bottom: 1px solid var(--border); }
+            .strip-item:last-child { border-bottom: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nav -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="logo">
+                <svg class="logo-mark" width="28" height="28" viewBox="0 0 60 72" fill="none"><polygon points="4,0 56,0 30,52" fill="#1E4D8C"/><polygon points="4,72 56,72 30,20" fill="#D4A017" opacity="0.8"/></svg>
+                Alban Singular
+            </a>
+            <div class="nav-meta">
+                <span>St Albans</span>
+                <span>Est. 2026</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#process">How It Works</a></li>
+                <li><a href="#verticals">Who We Help</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact" class="nav-cta">Get Your Free Audit</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div>
+            <div class="hero-index">AI Process Optimisation</div>
+            <h1>
+                <span class="line-thin">Your business</span>
+                runs on
+                processes.
+                <span class="line-azure">We make them faster.</span>
+            </h1>
+        </div>
+        <div class="hero-right">
+            <p class="hero-desc">We help local businesses in St Albans eliminate repetitive work, cut costs, and reclaim hours every week through intelligent automation.</p>
+            <div class="hero-ctas">
+                <a href="#contact" class="btn-primary">
+                    Book your free audit
+                    <span class="arrow">&rarr;</span>
+                </a>
+                <a href="#process" class="btn-ghost">
+                    See how it works
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote: Sunak -->
+    <div class="pull-quote fade-up">
+        <div class="pull-quote-inner">
+            <blockquote>&ldquo;Speed of adoption is everything. If you are not planning for the era of applied AI, then the risk is being left behind, sitting on the wrong side of a K-shaped economy.&rdquo;</blockquote>
+            <div class="pull-quote-attr">
+                <span class="pull-quote-name">Rishi Sunak</span>
+                <span class="pull-quote-role">Former Prime Minister of the United Kingdom</span>
+                <span class="pull-quote-context">Goldman Sachs 10,000 Small Businesses UK, March 2026</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Strip -->
+    <div class="strip">
+        <div class="strip-item">
+            <div class="strip-label">Local</div>
+            <div class="strip-value">St Albans</div>
+        </div>
+        <div class="strip-item">
+            <div class="strip-label">Service</div>
+            <div class="strip-value">AI Automation</div>
+        </div>
+        <div class="strip-item">
+            <div class="strip-label">Admin Reduction</div>
+            <div class="strip-value">40 &ndash; 60%</div>
+        </div>
+        <div class="strip-item">
+            <div class="strip-label">Audit Cost</div>
+            <div class="strip-value">Free</div>
+        </div>
+    </div>
+
+    <!-- Problem -->
+    <section class="problem">
+        <div class="problem-header fade-up">
+            <div>
+                <div class="section-idx">The Problem</div>
+                <h2 class="section-title">Your team is spending hours on work that doesn't need a person.</h2>
+            </div>
+            <p class="section-desc">Every business has processes that eat up time, cost money, and slow things down. Most of them can be automated today.</p>
+        </div>
+        <div class="problem-grid fade-up">
+            <div class="problem-card">
+                <div class="problem-num">01</div>
+                <h3>Time lost to admin</h3>
+                <p>Data entry, appointment chasing, document formatting, filing, follow-ups. Your skilled staff are doing work a machine could handle in seconds.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-num">02</div>
+                <h3>Money spent on manual work</h3>
+                <p>You're paying experienced people to do repetitive tasks. That's expensive labour doing low-value work, every single day.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-num">03</div>
+                <h3>Things falling through cracks</h3>
+                <p>When processes depend on people remembering to do things, mistakes happen. Follow-ups get missed. Clients notice.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote: Griggs -->
+    <div class="pull-quote fade-up">
+        <div class="pull-quote-inner">
+            <blockquote>&ldquo;Anyone who thinks they have the opportunity to opt out of AI is not going to be here that long.&rdquo;</blockquote>
+            <div class="pull-quote-attr">
+                <span class="pull-quote-name">Paul Griggs</span>
+                <span class="pull-quote-role">US CEO, PwC</span>
+                <span class="pull-quote-context">Financial Times, March 2026</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Process -->
+    <section class="process" id="process">
+        <div class="process-header fade-up">
+            <div>
+                <div class="section-idx">How It Works</div>
+                <h2 class="section-title">Three steps to streamlined operations.</h2>
+            </div>
+            <p class="section-desc">We don't sell you technology. We learn your business, find the waste, and fix it.</p>
+        </div>
+        <div class="process-grid fade-up">
+            <div class="process-card">
+                <div class="process-idx">Step 1</div>
+                <h3>Process Audit</h3>
+                <p>We map your workflows, identify bottlenecks, and calculate where you're losing time and money. You get a clear report with specific, costed recommendations.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-idx">Step 2</div>
+                <h3>We Build It</h3>
+                <p>We build and deploy automations tailored to your business. Client intake, document processing, scheduling, reporting. We train your team so it just works.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-idx">Step 3</div>
+                <h3>Ongoing Support</h3>
+                <p>We maintain your systems, add new automations as needs evolve, and make sure everything keeps running. You focus on your business.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Verticals -->
+    <section class="verticals" id="verticals">
+        <div class="verticals-circle"></div>
+        <div class="verticals-header fade-up">
+            <div>
+                <div class="section-idx">Who We Help</div>
+                <h2 class="section-title">Built for St Albans businesses.</h2>
+            </div>
+            <p class="section-desc">We work with local businesses who know they could be more efficient but aren't sure where to start.</p>
+        </div>
+        <div class="verticals-grid fade-up">
+            <div class="v-item">
+                <!--<div class="v-idx"></div>-->
+                <div class="v-name">Solicitors & Law</div>
+                <div class="v-use">Client intake, document review, compliance tracking</div>
+            </div>
+            <div class="v-item">
+                <!--<div class="v-idx"></div>-->
+                <div class="v-name">Estate Agents</div>
+                <div class="v-use">Listing management, enquiry routing, viewing schedules</div>
+            </div>
+            <div class="v-item">
+                <!--<div class="v-idx"></div>-->
+                <div class="v-name">Dental & Medical</div>
+                <div class="v-use">Appointment booking, reminders, patient follow-ups</div>
+            </div>
+            <div class="v-item">
+                <!--<div class="v-idx"></div>-->
+                <div class="v-name">Accountants</div>
+                <div class="v-use">Invoice processing, data entry, client reporting</div>
+            </div>
+            <div class="v-item">
+                <!--<div class="v-idx"></div>-->
+                <div class="v-name">Recruitment</div>
+                <div class="v-use">CV screening, candidate comms, interview scheduling</div>
+            </div>
+            <div class="v-item">
+                <!--<div class="v-idx"></div>-->
+                <div class="v-name">Construction</div>
+                <div class="v-use">Quote generation, project tracking, supplier management</div>
+            </div>
+            <div class="v-item">
+                <!--<div class="v-idx"></div>-->
+                <div class="v-name">Hospitality</div>
+                <div class="v-use">Reservations, review responses, inventory alerts</div>
+            </div>
+            <div class="v-item">
+                <!--<div class="v-idx"></div>-->
+                <div class="v-name">Education</div>
+                <div class="v-use">Enrolment, parent comms, schedule management</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote: Dimon -->
+    <div class="pull-quote fade-up">
+        <div class="pull-quote-inner">
+            <blockquote>&ldquo;Just use the technology to do a better job or you&rsquo;ll be left behind.&rdquo;</blockquote>
+            <div class="pull-quote-attr">
+                <span class="pull-quote-name">Jamie Dimon</span>
+                <span class="pull-quote-role">Chairman & CEO, JPMorgan Chase</span>
+                <span class="pull-quote-context">Databricks Data + AI Summit, 2025</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Offer -->
+    <section class="offer">
+        <div class="offer-box fade-up">
+            <div class="offer-circle"></div>
+            <div class="offer-left">
+                <div class="offer-idx">Founding Offer</div>
+                <h2 class="offer-title">Free process audit for our founding clients.</h2>
+                <p class="offer-text">We're launching in St Albans and want to build lasting partnerships. Our founding clients receive a full process audit completely free. No obligation, no strings. You get a clear report showing exactly where automation can save you time and money.</p>
+                <a href="#contact" class="btn-primary">
+                    Claim your free audit
+                    <span class="arrow">&rarr;</span>
+                </a>
+                <div class="offer-tag">
+                    <span class="pulse-dot"></span>
+                    Limited spots remaining
+                </div>
+            </div>
+            <div class="offer-right">
+                <div class="offer-stat">
+                    <div class="offer-stat-val">40&ndash;60%</div>
+                    <div class="offer-stat-lbl">Reduction in admin time</div>
+                </div>
+                <div class="offer-stat">
+                    <div class="offer-stat-val">&frac12; day</div>
+                    <div class="offer-stat-lbl">Audit turnaround</div>
+                </div>
+                <div class="offer-stat">
+                    <div class="offer-stat-val">&pound;0</div>
+                    <div class="offer-stat-lbl">Cost for founding clients</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="about-header fade-up">
+            <div class="section-idx">About</div>
+            <h2 class="section-title">Local expertise, modern tools.</h2>
+        </div>
+        <div class="about-content fade-up">
+            <div class="about-text">
+                <p>Alban Singular is a St Albans-based consultancy that helps local businesses work smarter. We specialise in finding the repetitive, time-consuming processes in your business and replacing them with intelligent automation.</p>
+                <p>We're not a big agency trying to sell you a platform. We're a <strong>local operation</strong> that sits down with you, understands how your business actually works, and builds solutions that fit. No unnecessary complexity, no ongoing dependencies.</p>
+                <p>Every solution we build is designed to pay for itself within weeks, not months. We measure success in hours saved and costs cut, not in technology deployed.</p>
+            </div>
+            <div class="about-visual" style="background: url('Cathedral.jpeg') center/cover no-repeat; border: 1px solid var(--border);">
+                <div class="about-circle-sm"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="contact-header fade-up">
+            <div>
+                <div class="section-idx">Get In Touch</div>
+                <h2 class="section-title">Ready to streamline your business?</h2>
+            </div>
+            <p class="section-desc">Book your free process audit or just ask a question. We respond within 24 hours.</p>
+        </div>
+        <div class="contact-grid fade-up">
+            <div class="contact-info">
+                <h3>Alban Singular</h3>
+                <div class="contact-line">
+                    <span class="contact-line-label">Location</span>
+                    <span>St Albans, Hertfordshire</span>
+                </div>
+                <div class="contact-line">
+                    <span class="contact-line-label">Email</span>
+                    <a href="mailto:ben@albansingular.co.uk">ben@albansingular.co.uk</a>
+                </div>
+                <div class="contact-line">
+                    <span class="contact-line-label">Status</span>
+                    <span>Accepting new clients</span>
+                </div>
+            </div>
+            <form class="contact-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='SENT'; this.querySelector('button').style.background='#4A6741';">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="business">Business</label>
+                        <input type="text" id="business" name="business" placeholder="Business name">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="you@business.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" placeholder="01727 ...">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Tell us about your business and what takes up most of your time..."></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-left">&copy; 2026 Alban Singular</div>
+        <div class="footer-right">AI Process Optimisation / St Albans, Hertfordshire</div>
+    </footer>
+
+    <script>
+        const nav = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 20);
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
