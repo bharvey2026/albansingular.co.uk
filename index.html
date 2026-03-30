@@ -1267,7 +1267,7 @@
                     <span>Accepting new clients</span>
                 </div>
             </div>
-            <form class="contact-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='SENT'; this.querySelector('button').style.background='#4A6741';">
+            <form class="contact-form" id="contactForm" onsubmit="submitForm(event)">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="name">Name</label>
@@ -1316,6 +1316,46 @@
         }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        function submitForm(e) {
+            e.preventDefault();
+            var form = document.getElementById('contactForm');
+            var btn = form.querySelector('button');
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+
+            var data = {
+                name: form.querySelector('#name').value,
+                business: form.querySelector('#business').value,
+                email: form.querySelector('#email').value,
+                phone: form.querySelector('#phone').value,
+                message: form.querySelector('#message').value
+            };
+
+            fetch('https://script.google.com/macros/s/AKfycbxmrg0Gg_XvYf-eBIqj2gXe-AipE5hMJK7mNGKJCE-dsipiQHzZhM4J_dVcCsAuWrPV/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            }).then(function() {
+                btn.textContent = 'Sent!';
+                btn.style.background = '#4A6741';
+                form.reset();
+                setTimeout(function() {
+                    btn.textContent = 'Send Message';
+                    btn.style.background = '';
+                    btn.disabled = false;
+                }, 4000);
+            }).catch(function() {
+                btn.textContent = 'Error - try again';
+                btn.style.background = '#8B2332';
+                btn.disabled = false;
+                setTimeout(function() {
+                    btn.textContent = 'Send Message';
+                    btn.style.background = '';
+                }, 3000);
+            });
+        }
     </script>
 
 </body>
